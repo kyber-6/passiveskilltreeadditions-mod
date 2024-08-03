@@ -8,7 +8,7 @@ import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.Renderable;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
-import net.minecraft.network.chat.Component; // Correct import for Component
+import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.pixeldreamstudios.passiveskilltreeadditions.PassiveSkillTreeAdditions;
 import net.pixeldreamstudios.passiveskilltreeadditions.config.ModConfig;
@@ -21,18 +21,16 @@ public class PassiveSkillTreeAdditionsGui implements Renderable, GuiEventListene
     protected static final int TEXTURE_HEIGHT = 20;
     protected final InventoryScreen parent;
     protected final ImageButton toggleBtn;
-    protected int leftPos, topPos;
     protected boolean open = false;
 
     public PassiveSkillTreeAdditionsGui(InventoryScreen parent) {
         this.parent = parent;
-        this.leftPos = parent.getGuiLeft();
-        this.topPos = parent.getGuiTop();
 
         // Use configuration values for button position
         int buttonX = ModConfig.CLIENT.buttonX.get();
         int buttonY = ModConfig.CLIENT.buttonY.get();
 
+        // Initialize the button
         this.toggleBtn = new ImageButton(buttonX, buttonY, 10, 10, 0, 0, TEXTURE_HEIGHT / 2, BUTTON_TEXTURE, TEXTURE_WIDTH, TEXTURE_HEIGHT, btn -> {
             this.toggleVisibility();
         });
@@ -48,9 +46,9 @@ public class PassiveSkillTreeAdditionsGui implements Renderable, GuiEventListene
 
     @Override
     public void render(GuiGraphics gfx, int mouseX, int mouseY, float partialTicks) {
-        // Update button position based on the configuration
-        this.toggleBtn.setX(ModConfig.CLIENT.buttonX.get());
-        this.toggleBtn.setY(ModConfig.CLIENT.buttonY.get());
+        // Update button position based on the configuration and parent screen's position
+        this.toggleBtn.setX(parent.getGuiLeft() + ModConfig.CLIENT.buttonX.get());
+        this.toggleBtn.setY(parent.getGuiTop() + ModConfig.CLIENT.buttonY.get());
 
         // Render the button
         this.toggleBtn.render(gfx, mouseX, mouseY, partialTicks);

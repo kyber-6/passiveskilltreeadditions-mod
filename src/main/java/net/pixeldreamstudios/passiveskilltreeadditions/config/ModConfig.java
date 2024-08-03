@@ -22,11 +22,11 @@ public class ModConfig {
 
             buttonX = builder
                     .comment("X position of the Passive Skill Tree button in the inventory screen")
-                    .defineInRange("buttonX", 189, 0, Integer.MAX_VALUE);
+                    .defineInRange("buttonX", 63, 0, Integer.MAX_VALUE);
 
             buttonY = builder
                     .comment("Y position of the Passive Skill Tree button in the inventory screen")
-                    .defineInRange("buttonY", 105, 0, Integer.MAX_VALUE);
+                    .defineInRange("buttonY", 68, 0, Integer.MAX_VALUE);
 
             builder.pop();
         }
