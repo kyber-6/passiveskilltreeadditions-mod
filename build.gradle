@@ -2,7 +2,7 @@ plugins {
     id 'eclipse'
     id 'idea'
     id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'net.minecraftforge.gradle' version '[6.0.16,6.2)'
     id 'org.parchmentmc.librarian.forgegradle' version '1.+'
 }
 
@@ -167,10 +167,10 @@ dependencies {
     // curios
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:5.3.1+1.20.1")
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:5.3.1+1.20.1")
-    // attirubutefix
+    // attribute fix
     implementation fg.deobf("curse.maven:attributefix-280510:4648448")
     // passive skill tree
-    implementation fg.deobf("curse.maven:passive-skill-tree-850298:5108989")
+    implementation fg.deobf("curse.maven:passive-skill-tree-850298:7170314")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
